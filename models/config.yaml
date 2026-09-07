@@ -1,0 +1,42 @@
+n_warehouse: 30
+idx_min: 1
+idx_max: 20
+
+gamma_ratio_list: [0.1, 0.3, 0.5, 0.7, 0.9]
+
+EPS_CCG: 0.0001
+EPS_INEQUALITY: 0.000001 # for numerical stability
+
+field_names: [
+    'name',
+    'n_warehouse',
+    'n_demand',
+    'n_commodity',
+    'gamma_ratio',
+    'alg',
+    'prune_interval',
+    'force_keep',
+    'prune_threshold',
+    'stop_prune_ratio',
+    'lb_degradation_tol',
+    'time_total',
+    'time_mp',
+    'time_pa',
+    'time_sp',
+    'iter_count',
+    'n_sce_final',
+    'n_rollback',
+    'n_mp_var_int',
+    'n_mp_var_cont',
+    'n_mp_constr',
+    'ub',
+    'lb',
+    'gap_abs',                    
+    'y_sol_str'
+]
+
+prune_interval_list: [4, 5]
+force_keep: 2
+prune_threshold_list: [0.95, 0.99]
+stop_prune_ratio_list: [2, 5]
+lb_degradation_tol_list: [1.2, 1.5]
