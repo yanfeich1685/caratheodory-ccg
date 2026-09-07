@@ -60,7 +60,7 @@ def build_master(ins, g_work):
 def build_subproblem(ins, gamma_ratio):
     sp = gp.Model()
     sp.Params.OutputFlag = 0
-    B = math.ceil(ins.c.max())
+    B = math.ceil(ins.c.max()) # set to a reasonable value
 
     g = {}
     lam = {}
@@ -237,7 +237,7 @@ def main():
     
                                 g_work[it] = g_opt
                                 g_cache[it] = g_opt
-                                if it > 1:
+                                if it > 1: # The first iteration produces a trivial dual direction; discard it
                                     lam_cache[it] = lam_opt
     
                                 ni = int(mp.NumIntVars)
