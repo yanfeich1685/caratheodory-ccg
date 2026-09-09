@@ -19,7 +19,7 @@ d_min, d_max = 20, 200
 dev_ratio_min, dev_ratio_max = 0.2, 0.6
 Z_min, Z_max = 500, 2000
 
-seed = 1077
+seed = 1077 # https://en.wikipedia.org/wiki/Road_to_Canossa
 
 
 def generate_instance(seed, n_ins):

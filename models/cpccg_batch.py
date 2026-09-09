@@ -60,7 +60,7 @@ def build_master(ins, g_work):
 def build_subproblem(ins, gamma_ratio):
     sp = gp.Model()
     sp.Params.OutputFlag = 0
-    B = math.ceil(ins.c.max()) # set to a reasonable value
+    B = math.ceil(ins.c.max()) # set to a reasonable value to mitigate numerical instability
 
     g = {}
     lam = {}
@@ -172,8 +172,6 @@ def main():
                 for prune_threshold in prune_threshold_list:
                     for stop_prune_ratio in stop_prune_ratio_list:
                         for lb_degradation_tol in lb_degradation_tol_list:
-                            if prune_interval == 5 and prune_threshold == 0.95 and stop_prune_ratio == 5 and lb_degradation_tol == 1.5:
-                                continue
                             print('=' * 60)
                             print(f'CP-C&CG Start, {ins.name}, Gamma ratio = {gamma_ratio}')
                             print(f'Prune interval = {prune_interval}, force keep = {force_keep},\n'
@@ -237,7 +235,7 @@ def main():
     
                                 g_work[it] = g_opt
                                 g_cache[it] = g_opt
-                                if it > 1: # The first iteration produces a trivial dual direction; discard it
+                                if it > 1: # The first iteration produces a trivial dual direction; discard it. Interested readers can print it
                                     lam_cache[it] = lam_opt
     
                                 ni = int(mp.NumIntVars)
